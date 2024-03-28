@@ -306,7 +306,7 @@ namespace QuickCG
 			SDL_PollEvent(&event);
 			if (event.type == SDL_QUIT) end();
 			inkeys = SDL_GetKeyboardState(NULL);
-			if (inkeys[SDLK_ESCAPE]) end();
+			if (inkeys[SDL_SCANCODE_ESCAPE]) end();
 			SDL_Delay(5); //so it consumes less processing power
 		}
 	}
@@ -319,7 +319,7 @@ namespace QuickCG
 		bool done = false;
 		if (!SDL_PollEvent(&event)) return 0;
 		readKeys();
-		if (quit_if_esc && inkeys[SDLK_ESCAPE]) done = true;
+		if (quit_if_esc && inkeys[SDL_SCANCODE_ESCAPE]) done = true;
 		if (event.type == SDL_QUIT) done = true;
 		return done;
 	}
